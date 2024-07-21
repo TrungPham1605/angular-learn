@@ -1,0 +1,47 @@
+
+<input type="text" [(ngModel)]="inputText" placeholder="Type something to show/hide">
+<br>
+<span *ngIf="shouldShow; else hideTpl">I'm here!</span>
+<br>
+<button type="button" (click)="toggleShow()">Toggle show/hide</button>
+<ng-template #hideTpl>
+  <span>---------</span>
+</ng-template>
+
+<hr>
+
+
+List page:
+<ul>
+  <li *ngFor="let page of listPage; let i = index; let isFirst = first; let isLast = last">
+    {{ i + 1 }}. {{ page }}
+    {{ isFirst ? '(Start)' : '' }}
+    {{ isLast ? '(End)' : '' }}
+  </li>
+</ul>
+
+<hr>
+
+
+<input type="text" [(ngModel)]="inputValue"><br>
+<span [ngSwitch]="inputValue">
+  <span *ngSwitchCase="'a'">Case A</span>
+  <span *ngSwitchCase="'b'">Case B</span>
+  <span *ngSwitchCase="'c'">Case C</span>
+  <span *ngSwitchDefault>{{ inputValue ? 'No case ' + inputValue : '' }}</span>
+</span>
+<br>
+
+<hr>
+
+
+<ng-container *ngTemplateOutlet="greet"></ng-container>
+<br>
+<ng-container *ngTemplateOutlet="eng; context: myContext"></ng-container>
+<br>
+<ng-container *ngTemplateOutlet="vie; context: myContext"></ng-container>
+<br>
+
+<ng-template #greet>Hello!</ng-template>
+<ng-template #eng let-name>Hello {{ name }}!!</ng-template>
+<ng-template #vie let-person="localVie">Chào {{ person }}!!!</ng-template>

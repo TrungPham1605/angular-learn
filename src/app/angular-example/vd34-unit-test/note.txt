@@ -1,0 +1,2 @@
+const context = require.context('./', true, /\.spec\.ts$/);
+const context = require.context('./', true, /vd34.*\.spec\.ts$/);

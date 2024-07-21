@@ -1,0 +1,14 @@
+<div>
+    <input #inputValue type="text" placeholder="Enter text" />
+    <button type="button" (click)="processData(inputValue.value)">
+      Save
+    </button>
+  </div>
+  
+  <ul>
+    <li *ngFor="let item of items">
+      {{ item }}
+    </li>
+  </ul>
+  
+  
